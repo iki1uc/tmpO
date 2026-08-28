@@ -1,35 +1,40 @@
-# O – Orbit / Offenheit / Ursprung
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>O · Orbit / Offenheit / Ursprung</title>
+</head>
 
-## Zweck
-O bildet den Orbit des virtuellen Raums.
-Es öffnet Umlauf, Offenheit und Ursprung.
+<body>
 
----
+<h1>O – Orbit / Offenheit / Ursprung</h1>
 
-## Identität
-- CORE: O
-- VERSION: 1.0
-- CODE: RAW
-- AXIS: O‑Axis
-- EBENE: VR‑O
-- FREQUENZ: 2222 Hz
-- GEOMETRIE: Orbit‑Ring
-- STATUS: Aktiv
+<pre id="o-id"></pre>
+<button id="spawn">Orbit‑Instanz erzeugen</button>
+<pre id="o-instanz"></pre>
 
----
+<script type="module">
+  import { instanz } from "./instanz.js";
 
-## Funktionen
-- Umlaufbewegung
-- Offenheits‑Achse
-- Ursprung des Orbit‑Raums
+  const O_ID = {
+    CORE: "O",
+    VERSION: "1.0",
+    AXIS: "O‑Axis",
+    EBENE: "VR‑O",
+    FREQUENZ: "2222 Hz",
+    GEOMETRIE: "Orbit‑Ring",
+    STATUS: "Aktiv"
+  };
 
----
+  document.getElementById("o-id").textContent =
+    JSON.stringify(O_ID, null, 2);
 
-## Dateien
-- index.html – Geometrie & Frequenz
-- ID.html – Achsen‑Identität
+  document.getElementById("spawn").addEventListener("click", () => {
+    const i = instanz(O_ID, { ID: "O‑CORE" });
+    document.getElementById("o-instanz").textContent =
+      JSON.stringify(i, null, 2);
+  });
+</script>
 
----
-
-## Hinweis
-O ist der Umlauf des virtuellen Raums.
+</body>
+</html>
